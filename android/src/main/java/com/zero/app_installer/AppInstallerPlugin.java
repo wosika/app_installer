@@ -167,10 +167,11 @@ public class AppInstallerPlugin implements FlutterPlugin, ActivityAware, MethodC
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 // Uri contentUri = FileProvider.getUriForFile(applicationContext,
                 //         applicationContext.getPackageName() + ".fileProvider", apkFile);
-                 intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+                // intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
             } else {
-                 intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+                
             }
+            intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
             mActivity.startActivity(intent);
             if (result != null) {
                 result.success(true);
